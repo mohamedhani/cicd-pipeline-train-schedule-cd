@@ -14,7 +14,7 @@ pipeline {
                sh echo "it is a stage"
                withCredentials([usernamePassword(credentialsId:'stage_web_server',usernameVariable :'USERNAME',passwordVariable:'PASSWORD')])
                sshPublisher
-               {
+               (
                    continueOnError: false ,
                    failOnError: true ,
                    publisher:[
@@ -35,16 +35,12 @@ pipeline {
 
                     }
 
-
                    ]
-                      
-
-                   
-
-               }
-              
+                                         
+               )
             
-           }   }
+           }   
+        }
         }
     }
 }
