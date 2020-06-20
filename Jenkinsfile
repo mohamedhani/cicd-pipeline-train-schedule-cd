@@ -12,7 +12,7 @@ pipeline {
             when { brach 'master'}
             steps    
             {  
-               sh echo "it is a stage"
+                echo "it is a stage"
                withCredentials([usernamePassword(credentialsId:'stage_web_server',usernameVariable :'USERNAME',passwordVariable:'PASSWORD')]) {
               sshPublisher(
                   publishers:[sshPublisherDesc (
