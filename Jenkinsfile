@@ -25,10 +25,11 @@ pipeline {
                     sourceFiles: 'dist/trainSchedule.zip',
                     removePrefix: 'dist/', 
                      remoteDirectory: '/tmp/', 
-                     execCommand: 'sudo yum install -y unzip && sudo unzip /tmp/trainSchedule.zip -d /opt/cicd_project/'
+                   
                          )],
                        )])
-            
+             sh sudo yum install -y unzip
+             sh sudo  unzip /tmp/trainSchedule.zip -d /opt/cicd_project
             }   
         }
         }
