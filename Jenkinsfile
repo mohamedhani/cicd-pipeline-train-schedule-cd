@@ -28,9 +28,9 @@ pipeline {
                    
                          )],
                        )])
-             sh sudo yum install -y unzip
+            }  
+                 sh sudo yum install -y unzip
              sh sudo  unzip /tmp/trainSchedule.zip -d /opt/cicd_project
-            }   
         }
         }
     
