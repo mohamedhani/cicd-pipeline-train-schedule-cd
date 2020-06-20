@@ -22,10 +22,8 @@ pipeline {
                     username: "mohamed"
                      ],
                 transfers: [sshTransfer(
-                    sourceFiles: 'dist/trainSchedule.zip',
-                    removePrefix: 'dist/', 
-                     remoteDirectory: '/opt',
-                     execCommand: ' sudo yum install unzip -y && sudo unzip /tmp/trainSchedule.zip && sudo mkdir /opt/cicd_project && sudo mv /tmp/trtrainSchedule/* /opt/cicd_project'
+                 
+                     execCommand: 'mkdir /home/mohamed/jenn'
                          )],
                        )])
             
