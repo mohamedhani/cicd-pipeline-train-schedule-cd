@@ -18,8 +18,8 @@ pipeline {
                   publishers:[sshPublisherDesc (
                     configName: 'stage_server',
                     sshCredentials: [
-                    encryptedPassphrase: "$PASSWORD", 
-                    username: "$USERNAME"
+                    encryptedPassphrase: "mohamed", 
+                    username: "mohamed"
                      ],
                 transfers: [sshTransfer(
                      execCommand: ' sudo yum install unzip -y && sudo unzip /tmp/trainSchedule.zip && sudo mkdir /opt/cicd_project && sudo mv /tmp/trtrainSchedule/* /opt/cicd_project', 
