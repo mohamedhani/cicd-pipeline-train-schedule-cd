@@ -16,7 +16,7 @@ pipeline {
                withCredentials([usernamePassword(credentialsId:'stage_web_server',usernameVariable :'USERNAME',passwordVariable:'PASSWORD')]) {
               sshPublisher(
                   publishers:[sshPublisherDesc (
-                    configName: '192.168.136.100',
+                    configName: 'stage_server',
                     sshCredentials: [
                     encryptedPassphrase: "mohamed", 
                     username: "mohamed"
