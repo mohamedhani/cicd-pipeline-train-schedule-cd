@@ -22,9 +22,11 @@ pipeline {
                     username: "mohamed"
                      ],
                 transfers: [sshTransfer(
-                     execCommand: ' sudo yum install unzip -y && sudo unzip /tmp/trainSchedule.zip && sudo mkdir /opt/cicd_project && sudo mv /tmp/trtrainSchedule/* /opt/cicd_project', 
+                    sourceFiles: 'dist/trainSchedule.zip',
+                    removePrefix: 'dist/', 
                      remoteDirectory: '/opt',
-                      removePrefix: 'dist/', sourceFiles: 'dist/trainSchedule.zip')],
+                     execCommand: ' sudo yum install unzip -y && sudo unzip /tmp/trainSchedule.zip && sudo mkdir /opt/cicd_project && sudo mv /tmp/trtrainSchedule/* /opt/cicd_project'
+                         )],
                        )])
             
             }   
