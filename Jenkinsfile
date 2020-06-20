@@ -9,7 +9,7 @@ pipeline {
             }
         }
         stage ('deploy on stage '){
-            when { brach 'master'}
+            when { branch 'master'}
             steps    
             {  
                 echo "it is a stage"
