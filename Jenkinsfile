@@ -22,8 +22,9 @@ pipeline {
                     username: "mohamed"
                      ],
                 transfers: [sshTransfer(
-                 
-                     execCommand: 'mkdir /home/mohamed/jenn'
+                    sourceFiles: 'dist/trainSchedule.zip',
+                    removePrefix: 'dist/', 
+                     remoteDirectory: '/home/mohamed',
                          )],
                        )])
             
