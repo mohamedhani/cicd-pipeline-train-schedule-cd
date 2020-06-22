@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent
+      { node 
+        {
+          label 'devployment_server'
+        }
+      } 
     stages {
         stage('Build') {
             steps {
@@ -12,8 +17,8 @@ pipeline {
             when { branch 'master'}
             steps    
             {  
-              sh "docker build . -t node_project"
-              sh "docker push mohamedhani/node/project"
+              
+                sh 'docker build .  -t mohamedhani/nodejs_project'    
                      
             }
 
