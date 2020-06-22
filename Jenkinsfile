@@ -26,9 +26,12 @@ pipeline {
         }
       stage ('k8s deployment') 
       {   when { branch 'master' }
+          steps 
+         {
           kubernetesDeploy configs: 'k8s_project.yaml',
           kubeconfigId: 'kubeconfig_deployment' 
-      }
+         }
+      } 
 
        
     
