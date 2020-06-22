@@ -21,7 +21,6 @@ pipeline {
                    sh 'docker login -u $USERNAME -p $PASSWORD'
                 }  
                 sh 'docker build .  -t mohamedhani/nodejs_project'    
-                sh 'docker push mohamedhani/nodejs_project'     
             }
 
         }
