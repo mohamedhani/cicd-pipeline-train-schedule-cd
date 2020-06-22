@@ -17,9 +17,6 @@ pipeline {
             when { branch 'master'}
             steps    
             {  
-               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                   sh 'docker login -u $USERNAME -p $PASSWORD'
-                }  
                 sh 'docker build .  -t mohamedhani/nodejs_project'    
             }
 
