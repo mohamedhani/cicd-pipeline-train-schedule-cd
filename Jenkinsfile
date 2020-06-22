@@ -2,7 +2,7 @@ pipeline {
     agent
       { node 
         {
-          label 'devployment_server'
+          label 'deployment_server'
         }
       } 
     stages {
