@@ -28,8 +28,7 @@ pipeline {
       {   when { branch 'master' }
           steps 
          {
-          kubernetesDeploy configs: 'k8s_project.yaml',
-          kubeconfigId: 'kubeconfig_deployment' 
+             sh 'kubectl apply -f k8s_project.yaml'
          }
       } 
 
