@@ -29,7 +29,7 @@ pipeline {
       {
            when { branch 'master' }
            steps
-           {
+           { script{
              try  
               {
                      sh 'docker stop cd_project'
@@ -40,7 +40,7 @@ pipeline {
                 echo 'this container not valid'
               }
               sh 'docker run --name cd_project -p 3000:3000 mohamedhani/nodejs_project'
-
+            }
           }
 
        }
