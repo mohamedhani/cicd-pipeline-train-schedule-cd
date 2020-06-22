@@ -2,7 +2,7 @@ pipeline {
     agent
       { node 
         {
-          label 'deployment_server'
+          label 'k8s_deployment'
         }
       } 
     stages {
@@ -24,25 +24,13 @@ pipeline {
             }
 
         }
-      stage ('start docker contrainer') 
-      {
-           when { branch 'master' }
-           steps
-           { script{
-             try  
-              {
-                     sh 'docker stop cd_project'
-                     sh 'docker rm cd_project'
+      stage ('k8s deployment') 
+      {   when { branch 'master' }
+          kubernetesDeploy configs: 'k8s_project.yaml',
+          kubeconfigId: 'kubeconfig_deployment' 
+      }
 
-              } catch (all)	
-              {
-                echo 'this container not valid'
-              }
-              sh 'docker run -d --name cd_project -p 3000:3000 mohamedhani/nodejs_project'
-            }
-          }
-
-       }
+       
     
 }
 }
