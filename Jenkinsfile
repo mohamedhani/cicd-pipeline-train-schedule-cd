@@ -17,7 +17,7 @@ pipeline {
             when { branch 'master'}
             steps    
             {  
-                sh 'docker build .  -t mohamedhani/nodejs_project'    
+                sh 'docker build .  -t nodejs_project'    
             }
 
         }

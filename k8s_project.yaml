@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: nodejs-cd
-        image: mohamedhani/nodejs_project
+        image: nodejs_project
