@@ -26,7 +26,7 @@ pipeline {
       {   when { branch 'master' }
           steps 
          {
-             sh 'kubectl apply -f k8s_project.yaml'
+             sh 'kubectl apply --force=true -f k8s_project.yaml'
          }
       } 
 
