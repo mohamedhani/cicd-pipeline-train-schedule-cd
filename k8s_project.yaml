@@ -14,4 +14,18 @@ spec:
     spec:
       containers:
       - name: nodejs-cd
-        image: nodejs_project
+        image: localregistry:5000/nodejs_project
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+spec:
+  selector:
+    app: nodejs
+  ports:
+  - port: 3000
+    nodePort: 30099
+    targetPort: 3000
+  type:  NodePort
+

@@ -17,7 +17,8 @@ pipeline {
             when { branch 'master'}
             steps    
             {  
-                sh 'docker build .  -t nodejs_project'    
+                sh 'docker build .  -t localregistry:5000/nodejs'  
+                sh 'docker push localregistry:5000/nodejs'    
             }
 
         }
