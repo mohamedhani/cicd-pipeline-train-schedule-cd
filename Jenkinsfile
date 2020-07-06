@@ -2,33 +2,25 @@ pipeline {
     agent
       { node 
         {
-          label 'k8s_deployment'
+          label 'deployment_server'
         }
       } 
     stages {
         stage('Build') {
+            when { brnach 'master' }
             steps {
-                echo 'Running build automation'
-                sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+                 sh 'docker build -t workflow_system:0.2'
             }
+
         }
         stage ('build docker image'){
             when { branch 'master'}
             steps    
-            {  
-                sh 'docker build .  -t localregistry:5000/nodejs'  
-                sh 'docker push localregistry:5000/nodejs'    
+            { 
+               sh 'docker run -d -p 3000:3000 --name nodejs workflow:0.2'
             }
 
         }
-      stage ('k8s deployment') 
-      {   when { branch 'master' }
-          steps 
-         {
-             sh 'kubectl apply --force=true -f k8s_project.yaml'
-         }
-      } 
 
        
     
